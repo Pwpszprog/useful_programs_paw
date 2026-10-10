@@ -32,6 +32,23 @@ To jest kolejny krótki tekst w ramach drugiej podsekcji. Znajdziesz tutaj link 
 | Test 1 | Ok | Zaliczone |
 | Test 2 | Błąd | Do poprawy |
 
+### Mangan
+1. ~~Jest smaczny~~
+2. **posiada wiele kolorów**
+3. *Ma elektrony walencyjne*
+4.  Podlega wzorowi $GMm/R^2$
+5.  Film opowiadający o technicznym wykorzystaniu [Manganu](youtube.com/watch?v=dQw4w9WgXcQ&xstg=CAMSEBUJ_b-oH-PhF0yjBgbwzzE%3D)
+Lista zakupow
+* jajka
+* chleb
+* domestos
+* płyn do naczyń
+* kubek
+* widelec
+* gniazdo wtykowe
+
+
+
 ### Kod w języku Python
 ```python
 import numpy as np
@@ -100,3 +117,5 @@ print(f"Wektor 1: {wyniki_3d['wektor_1']}, Długość: {wyniki_3d['dlugosc_1']:.
 print(f"Wektor 2: {wyniki_3d['wektor_2']}, Długość: {wyniki_3d['dlugosc_2']:.2f}")
 print(f"Iloczyn skalarny: {wyniki_3d['iloczyn_skalarny']}")
 print(f"Iloczyn wektorowy: {wyniki_3d['iloczyn_wektorowy_3D']}")
+```
+![Wykres](useful_programs_paw/pages/solutions/01_sol_markdown/wykres.png)
