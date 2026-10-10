@@ -10,7 +10,7 @@ Przydatne wzory matematyczne w tekście:
 - Funkcja kwadratowa: $f(x) = x^2$
 ## Druga podsekcja
 
-To jest kolejny krótki tekst w ramach drugiej podsekcji[cite: 1]. Znajdziesz tutaj link do platformy [Google Colab](http://colab.research.google.com)
+To jest kolejny krótki tekst w ramach drugiej podsekcji. Znajdziesz tutaj link do platformy [Google Colab](http://colab.research.google.com)
 
 ### Lista punktowana
 * Pierwszy element listy
