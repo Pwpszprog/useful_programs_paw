@@ -118,4 +118,4 @@ print(f"Wektor 2: {wyniki_3d['wektor_2']}, Długość: {wyniki_3d['dlugosc_2']:.
 print(f"Iloczyn skalarny: {wyniki_3d['iloczyn_skalarny']}")
 print(f"Iloczyn wektorowy: {wyniki_3d['iloczyn_wektorowy_3D']}")
 ```
-![wykres](pages/solutions/01_sol_markdown/wykres.png)
+![wykres](./wykres.png)
