@@ -47,7 +47,7 @@ Lista zakupow
 * widelec
 * gniazdo wtykowe
 
-![wykres](pages/solutions/01_sol_markdown/wykres.png)
+![wykres](pages/solutions/01_sol_markdown/zrzut.png)
 
 ### Kod w języku Python
 ```python
