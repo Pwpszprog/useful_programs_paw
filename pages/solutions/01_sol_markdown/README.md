@@ -37,7 +37,7 @@ To jest kolejny krótki tekst w ramach drugiej podsekcji. Znajdziesz tutaj link 
 2. **posiada wiele kolorów**
 3. *Ma elektrony walencyjne*
 4.  Podlega wzorowi $GMm/R^2$
-5.  Film opowiadający o technicznym wykorzystaniu [Manganu](youtube.com/watch?v=dQw4w9WgXcQ)
+5.  Film opowiadający o technicznym wykorzystaniu [Manganu](http://youtube.com/watch?v=dQw4w9WgXcQ)
 Lista zakupow
 * jajka
 * chleb
