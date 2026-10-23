@@ -12,9 +12,9 @@ Przydatne wzory matematyczne w tekście:
 
 To jest kolejny krótki tekst w ramach drugiej podsekcji. Znajdziesz tutaj link do platformy [Google Colab](http://colab.research.google.com)
 
-$$ F = \frac{k_eq_1q_2}{r^2} $$
-
-
+$$ F_e = \frac{k_eq_1q_2}{r^2} $$
+$$ F_g = \frac{GM_1M_2}{r^2} $$
+$$ F_l = q(**E**+**v**\times**B**) $$
 
 ### Lista punktowana
 * Pierwszy element listy
