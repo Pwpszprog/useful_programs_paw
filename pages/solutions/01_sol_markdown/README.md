@@ -12,7 +12,7 @@ Przydatne wzory matematyczne w tekście:
 
 To jest kolejny krótki tekst w ramach drugiej podsekcji. Znajdziesz tutaj link do platformy [Google Colab](http://colab.research.google.com)
 
-$$ F = \frac{k_eq_1q_2/r^2} $$
+$$ F = \frac{k_eq_1q_2}{r^2} $$
 
 
 
