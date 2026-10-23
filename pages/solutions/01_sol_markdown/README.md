@@ -12,6 +12,10 @@ Przydatne wzory matematyczne w tekście:
 
 To jest kolejny krótki tekst w ramach drugiej podsekcji. Znajdziesz tutaj link do platformy [Google Colab](http://colab.research.google.com)
 
+$$ F = kqq/r^2 $$
+
+
+
 ### Lista punktowana
 * Pierwszy element listy
 * Drugi element listy
