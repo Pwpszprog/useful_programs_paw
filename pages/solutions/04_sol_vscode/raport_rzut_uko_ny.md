@@ -1,4 +1,4 @@
-      # Raport: Analiza i symulacja rzutu ukośnego bez oporu oraz z oporem powietrza
+   # Raport: Analiza i symulacja rzutu ukośnego bez oporu oraz z oporem powietrza
 
 **Przedmiot:** Modelowanie fizyczne / Metody numeryczne  
 **Format dokumentu:** Markdown z notacją matematyczną $\LaTeX$  
@@ -38,7 +38,7 @@ Celem niniejszego raportu jest:
 
 Analizę przeprowadzamy w dwuwymiarowym kartezjańskim układzie współrzędnych $(x, y)$, w którym:
 * oś $Ox$ skierowana jest poziomo zgodnie z kierunkiem rzutu,
-* oś $Oy$ skierowana jest pionowo w górę, przeciwnie do wektora przyspieszenia ziemskiego $\vec{g} = [0, -g]$, gdzie $g \approx 9{,}81 \text{ m/s}^2$,
+* oś $Oy$ skierowana jest pionowo w górę, przeciwnie do wektora przyspieszenia ziemskiego $\vec{g} = [0, -g]$, gdzie $g \approx 9{,}81\text{ m/s}^2$,
 * w chwili początkowej $t = 0$ ciało znajduje się w punkcie $(x_0, y_0)$ (w najprostszym przypadku $x_0 = 0$, $y_0 = 0$),
 * składowe wektora prędkości początkowej $\vec{v}_0$ wynoszą:
 
@@ -56,11 +56,7 @@ $$m\frac{d^2\vec{r}}{dt^2} = m\vec{g}$$
 
 Rozpisując powyższe równanie wektorowe na składowe wzdłuż osi $Ox$ oraz $Oy$, otrzymujemy układ dwóch niezależnych równań różniczkowych drugiego rzędu:
 
-<<<<<<< HEAD
-$$\begin{cases} \dfrac{d^2x}{dt^2} = 0 \[10pt] \dfrac{d^2y}{dt^2} = -g \end{cases}$$
-=======
-$$\begin{cases} \dfrac{d^2x}{dt^2} = 0 \\\\[10pt] \dfrac{d^2y}{dt^2} = -g \end{cases}$$
->>>>>>> 86d8c6b50370c6dfe496485fccb38a4e33ae45e6
+$$\begin{cases} \dfrac{d^2x}{dt^2} = 0 \\[10pt] \dfrac{d^2y}{dt^2} = -g \end{cases}$$
 
 Po dwukrotnym scałkowaniu po czasie $t$ z uwzględnieniem warunków początkowych $x(0) = x_0$, $y(0) = y_0$, $v_x(0) = v_{0x}$ oraz $v_y(0) = v_{0y}$ uzyskujemy zależności kinematyczne:
 
@@ -113,11 +109,11 @@ Poszczególne symbole oznaczają:
 
 Wartość modułu prędkości wynosi $v = |\vec{v}| = \sqrt{v_x^2 + v_y^2}$. Wówczas II zasada dynamiki Newtona przyjmuje postać sprzężonego układu nieliniowych równań różniczkowych:
 
-$$\begin{cases} m \dfrac{dv_x}{dt} = -c \sqrt{v_x^2 + v_y^2} \cdot v_x \\\\[10pt] m \dfrac{dv_y}{dt} = -mg - c \sqrt{v_x^2 + v_y^2} \cdot v_y \end{cases}$$
+$$\begin{cases} m \dfrac{dv_x}{dt} = -c \sqrt{v_x^2 + v_y^2} \cdot v_x \\[10pt] m \dfrac{dv_y}{dt} = -mg - c \sqrt{v_x^2 + v_y^2} \cdot v_y \end{cases}$$
 
 Wprowadzając parametr oporu $k = \dfrac{c}{m} = \dfrac{\rho C_d A}{2m}$, otrzymujemy układ równań przyspieszeń:
 
-$$\begin{cases} a_x = \dfrac{dv_x}{dt} = -k v_x \sqrt{v_x^2 + v_y^2} \\\\[10pt] a_y = \dfrac{dv_y}{dt} = -g - k v_y \sqrt{v_x^2 + v_y^2} \end{cases}$$
+$$\begin{cases} a_x = \dfrac{dv_x}{dt} = -k v_x \sqrt{v_x^2 + v_y^2} \\[10pt] a_y = \dfrac{dv_y}{dt} = -g - k v_y \sqrt{v_x^2 + v_y^2} \end{cases}$$
 
 > **Uwaga:** Ze względu na człon $\sqrt{v_x^2 + v_y^2}$ równania wzdłuż osi $Ox$ i $Oy$ są ze sobą nieliniowo sprzężone (ruch poziomy wpływa na opór w kierunku pionowym i odwrotnie). Układ ten **nie posiada ogólnego rozwiązania analitycznego** w postaci funkcji elementarnych i wymaga całkowania numerycznego.
 
