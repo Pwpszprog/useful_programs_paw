@@ -1,4 +1,4 @@
-   # Raport: Analiza i symulacja rzutu ukośnego bez oporu oraz z oporem powietrza
+      # Raport: Analiza i symulacja rzutu ukośnego bez oporu oraz z oporem powietrza
 
 **Przedmiot:** Modelowanie fizyczne / Metody numeryczne  
 **Format dokumentu:** Markdown z notacją matematyczną $\LaTeX$  
@@ -38,7 +38,7 @@ Celem niniejszego raportu jest:
 
 Analizę przeprowadzamy w dwuwymiarowym kartezjańskim układzie współrzędnych $(x, y)$, w którym:
 * oś $Ox$ skierowana jest poziomo zgodnie z kierunkiem rzutu,
-* oś $Oy$ skierowana jest pionowo w górę, przeciwnie do wektora przyspieszenia ziemskiego $\vec{g} = [0, -g]$, gdzie $g \approx 9{,}81\text{ m/s}^2$,
+* oś $Oy$ skierowana jest pionowo w górę, przeciwnie do wektora przyspieszenia ziemskiego $\vec{g} = [0, -g]$, gdzie $g \approx 9{,}81 \text{ m/s}^2$,
 * w chwili początkowej $t = 0$ ciało znajduje się w punkcie $(x_0, y_0)$ (w najprostszym przypadku $x_0 = 0$, $y_0 = 0$),
 * składowe wektora prędkości początkowej $\vec{v}_0$ wynoszą:
 
@@ -56,7 +56,7 @@ $$m\frac{d^2\vec{r}}{dt^2} = m\vec{g}$$
 
 Rozpisując powyższe równanie wektorowe na składowe wzdłuż osi $Ox$ oraz $Oy$, otrzymujemy układ dwóch niezależnych równań różniczkowych drugiego rzędu:
 
-$$\begin{cases} \dfrac{d^2x}{dt^2} = 0 \\[10pt] \dfrac{d^2y}{dt^2} = -g \end{cases}$$
+$$\begin{cases} \dfrac{d^2x}{dt^2} = 0 \[10pt] \dfrac{d^2y}{dt^2} = -g \end{cases}$$
 
 Po dwukrotnym scałkowaniu po czasie $t$ z uwzględnieniem warunków początkowych $x(0) = x_0$, $y(0) = y_0$, $v_x(0) = v_{0x}$ oraz $v_y(0) = v_{0y}$ uzyskujemy zależności kinematyczne:
 
