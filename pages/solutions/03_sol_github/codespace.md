@@ -8,3 +8,4 @@
 - Levi Ackermann
 - Subaru Natsuki
 - Mitsuha Miyamizu
+- Johan Liebert
