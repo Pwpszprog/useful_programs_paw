@@ -45,9 +45,9 @@ Celem raportu jest wyprowadzenie równań ruchu dla **rzutu ukośnego**, wyznacz
 - W modelu idealnym pomijamy opór powietrza oraz siłę wyporu.
 - W modelu z oporem powietrza uwzględniamy siłę oporu skierowaną zawsze przeciwnie do wektora prędkości chwilowej $\vec{v}$: proporcjonalną do prędkości ($\vec{F}_{\mathrm{op}} = -b\vec{v}$) lub do jej kwadratu ($\vec{F}_{\mathrm{op}} = -c\,v\vec{v}$).
 
-Początek układu współrzędnych $(0, 0)$ umieszczamy w punkcie wyrzutu. Oś $x$ skierowana jest poziomo zgodnie z kierunkiem rzutu, a oś $y$ — pionowo w górę. Lot kończy się wwww chwili ponownego osiągnięcia poziomu $y = 0$.
+Początek układu współrzędnych $(0, 0)$ umieszczamy w punkcie wyrzutu. Oś $x$ skierowana jest poziomo zgodnie z kierunkiem rzutu, a oś $y$ — pionowo w górę. Lot kończy się w chwili ponownego osiągnięcia poziomu $y = 0$.
 
-Obliczenia w dalszej części raportu wykonano dla parametrów początkowych wynikających z numeru indeksu: prędkości początkowej $v_0 = \mathrm{[XX]}\,\mathrm{m/s}$ oraz kąta wyrzutu odpowiadającego $\mathrm{[YY]}^\circ$, czyli $\alpha \approx \mathrm{[ZZ]}\,\mathrm{rad}$ w jednostkach SI.
+Obliczenia w dalszej części raportu wykonano dla parametrów początkowych wynikających z numeru indeksu: prędkości początkowej $v_0 = \mathrm{[36]}\,\mathrm{m/s}$ oraz kąta wyrzutu odpowiadającego $\mathrm{[70]}^\circ$, czyli $\alpha \approx \mathrm{[1,22]}\,\mathrm{rad}$ w jednostkach SI.
 
 ![Schemat rzutu ukośnego: układ współrzędnych (x, y), wektor prędkości początkowej v0 pod kątem alfa, tor lotu oraz wektory siły ciężkości i siły oporu powietrza](files/rzut_ukosny/schemat.png)
 
@@ -223,7 +223,7 @@ Dla $y_0 > 0$ tor traci symetrię, prędkość przy upadku jest większa niż $v
 ---
 ## 3. Przykład liczbowy i analiza toru w modelu idealnym
 
-Przyjmujemy przyspieszenie ziemskie $g = 9{,}81\,\mathrm{m/s^2}$, masę ciała $m = 0{,}20\,\mathrm{kg}$ (piłka o promieniu $R = 0{,}035\,\mathrm{m}$) oraz warunki początkowe wynikające z numeru indeksu: $v_0 = \mathrm{[XX]}\,\mathrm{m/s}$ i $\alpha = \mathrm{[ZZ]}\,\mathrm{rad}$ ($\mathrm{[YY]}^\circ$). Wartości liczbowe w poniższej tabeli pochodzą z obliczeń wykonanych przez Blok A i Blok B (sekcja 7).
+Przyjmujemy przyspieszenie ziemskie $g = 9{,}81\,\mathrm{m/s^2}$, masę ciała $m = 0{,}20\,\mathrm{kg}$ (piłka o promieniu $R = 0{,}035\,\mathrm{m}$) oraz warunki początkowe wynikające z numeru indeksu: $v_0 = \mathrm{[]}\,\mathrm{m/s}$ i $\alpha = \mathrm{[1,22]}\,\mathrm{rad}$ ($\mathrm{[70]}^\circ$). Wartości liczbowe w poniższej tabeli pochodzą z obliczeń wykonanych przez Blok A i Blok B (sekcja 7).
 
 | Wielkość | Wzór | Wartość | Interpretacja |
 | :--- | :--- | ---: | :--- |
@@ -743,9 +743,9 @@ print(f"Gotowe: zapisano 7 rysunków w {OUT.resolve()}")
 ### 7.6. Struktura plików
 
 ```text
-raport_rzut_ukosny/
-├── raport.md
-├── generuj_wykresy.py
+04_sol_vscode/
+├── raport_rzut_uko_ny.md
+├── generuj_schemat.py
 └── files/
     └── rzut_ukosny/
         ├── schemat.png
@@ -818,7 +818,8 @@ Uwzględnienie oporu powietrza zmienia jakościowo dynamikę układu. Dla oporu 
 - [x] Porównano model idealny, opór liniowy i opór kwadratowy.
 - [x] Zbadano wpływ oporu powietrza na optymalny kąt wyrzutu.
 - [x] Dołączono kompletny kod generujący 7 wykresów oraz sprawdzający błędy numeryczne.
-- [ ] Wpisano własne cyfry indeksu (`V0`, `ALPHA_DEG`), uruchomiono skrypt i uzupełniono tabele w rozdziałach 3 i 6.
+- [X] Uruchomiono skrypt i uzupełniono tabele w rozdziałach 3 i 6.
+- [ ] Sprawdzone przez prowadzadzącego. 
 
 ---
 
