@@ -418,8 +418,8 @@ from scipy.integrate import solve_ivp
 # =====================================================================
 # PARAMETRY Z NUMERU INDEKSU (UZUPEŁNIJ SWOIMI CYFRAMI)
 # =====================================================================
-V0 = 25.0         # <-- Dwie pierwsze cyfry indeksu [m/s]
-ALPHA_DEG = 40.0  # <-- Dwie ostatnie cyfry indeksu [stopnie]
+V0 = 36.0         # <-- Dwie pierwsze cyfry indeksu [m/s]
+ALPHA_DEG = 70.0  # <-- Dwie ostatnie cyfry indeksu [stopnie]
 # Uwaga: jeśli końcówka indeksu wynosi 00 lub >= 90, skonsultuj kąt z prowadzącym.
 
 # Parametry fizyczne w jednostkach SI
