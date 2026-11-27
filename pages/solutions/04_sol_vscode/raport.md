@@ -103,7 +103,7 @@ W chwili wyrzutu $t = 0$ ciało znajduje się w początku układu współrzędny
 
 $$
  x(0) = 0, \qquad y(0) = 0, 
- $$
+$$
 
 $$
 v_x(0) = v_0\cos\alpha, \qquad v_y(0) = v_0\sin\alpha.
