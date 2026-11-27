@@ -7,8 +7,8 @@ from scipy.integrate import solve_ivp
 # =====================================================================
 # PARAMETRY Z NUMERU INDEKSU (UZUPEŁNIJ PRZED URUCHOMIENIEM)
 # =====================================================================
-V0 = 36.0              
-ALPHA_DEG = 70.0       
+V0 = 36.0              # <-- Dwie pierwsze cyfry indeksu [m/s]
+ALPHA_DEG = 70.0       # <-- Dwie ostatnie cyfry indeksu [stopnie]
 POKAZ_WYKRESY = False  # Zostaw False, żeby zapisać wszystkie naraz bez zatrzymywania
 
 if V0 <= 0:
@@ -27,7 +27,7 @@ c = 0.5 * rho * Cd * S         # współczynnik oporu kwadratowego [kg/m]
 b = 0.050                      # współczynnik oporu liniowego [kg/s]
 gamma = b / m                  # parametr tłumienia liniowego [1/s]
 
-alpha = np.deg2rad(ALPHA_DEG)
+alpha = np.deg2rad(ALPHA_DEG)  # kąt w jednostkach SI [rad]
 v0x = V0 * np.cos(alpha)
 v0y = V0 * np.sin(alpha)
 
@@ -55,8 +55,8 @@ plt.rcParams.update({
 })
 
 
-def zapisz(fig, nazwa, dpi=300):
-    """Zapisuje wykres w wysokiej rozdzielczości i opcjonalnie go wyświetla."""
+def zapisz(fig, nazwa, dpi=180):
+    """Zapisuje wykres w rozdzielczości 180 dpi i opcjonalnie go wyświetla."""
     sciezka = OUT / f"{nazwa}.png"
     fig.savefig(sciezka, dpi=dpi, bbox_inches="tight")
     print(f"Zapisano: {sciezka.name}")
@@ -66,7 +66,7 @@ def zapisz(fig, nazwa, dpi=300):
 
 
 # ---------------------------------------------------------------------
-# BLOK A: Schemat układu fizycznego (Rysunek 1)
+# BLOK A: Parametry modelu idealnego i schemat układu fizycznego (Rysunek 1)
 # ---------------------------------------------------------------------
 tw_id = v0y / g
 tc_id = 2.0 * tw_id
@@ -74,122 +74,66 @@ H_id = v0y**2 / (2.0 * g)
 Z_id = V0**2 * np.sin(2.0 * alpha) / g
 E0 = 0.5 * m * V0**2
 
-v0_mag = 5.0
-alpha_sch_deg = 45.0
-alpha_sch_rad = np.radians(alpha_sch_deg)
+print("=== WYNIKI DO ROZDZIAŁU 1 i 3 (MODEL IDEALNY, SI) ===")
+print(f"v0 = {V0:.2f} m/s | alpha = {ALPHA_DEG:.1f} deg = {alpha:.4f} rad")
+print(f"v0x = {v0x:.3f} m/s | v0y = {v0y:.3f} m/s")
+print(f"tw = {tw_id:.3f} s | tc = {tc_id:.3f} s")
+print(f"H_max = {H_id:.3f} m | Z = {Z_id:.3f} m | E = {E0:.3f} J")
+print(f"c = {c:.5f} kg/m | v_gr_kw = {np.sqrt(m * g / c):.2f} m/s\n")
 
-t_calkowity = (2 * v0_mag * np.sin(alpha_sch_rad)) / g
-czas_pokazu = 0.35 * t_calkowity
+fig, ax = plt.subplots(figsize=(10, 4.2), layout="constrained")
+ax.set(xlim=(-0.6, 8.2), ylim=(-0.6, 3.6))
+ax.axis("off")
 
-x_pokazu = v0_mag * np.cos(alpha_sch_rad) * czas_pokazu
-y_pokazu = (v0_mag * np.sin(alpha_sch_rad) * czas_pokazu) - (0.5 * g * czas_pokazu**2)
+# Osie układu współrzędnych
+ax.annotate("", xy=(7.8, 0), xytext=(-0.3, 0),
+            arrowprops={"arrowstyle": "->", "color": INK, "lw": 1.6})
+ax.annotate("", xy=(0, 3.3), xytext=(0, -0.3),
+            arrowprops={"arrowstyle": "->", "color": INK, "lw": 1.6})
+ax.text(7.85, -0.1, "$x$", fontsize=13)
+ax.text(-0.25, 3.25, "$y$", fontsize=13)
+ax.text(-0.35, -0.3, "$(0,0)$", fontsize=10)
 
-vx_pokazu = v0_mag * np.cos(alpha_sch_rad)
-vy_pokazu = (v0_mag * np.sin(alpha_sch_rad)) - (g * czas_pokazu)
+# Przykładowe tory (schematycznie)
+xs = np.linspace(0, 7.0, 300)
+ys_id = 1.45 * xs * (1 - xs / 7.0)
+ys_op = 1.45 * xs * (1 - xs / 5.4) * np.exp(-0.10 * xs)
+mask = ys_op >= 0
+ax.plot(xs, ys_id, "--", color=BLUE, alpha=0.75, label="Tor idealny (parabola)")
+ax.plot(xs[mask], ys_op[mask], color=ORANGE, label="Tor z oporem powietrza")
 
-fig, ax = plt.subplots(figsize=(10, 6))
-ax.grid(False)
+# Wektor prędkości początkowej i kąt alfa
+ax.annotate("", xy=(1.5, 2.18), xytext=(0, 0),
+            arrowprops={"arrowstyle": "->", "color": GREEN, "lw": 2.5})
+ax.text(1.55, 2.25, r"$\vec{v}_0$", color=GREEN, fontsize=14, fontweight="bold")
+ax.add_patch(Arc((0, 0), 1.8, 1.8, theta1=0, theta2=np.rad2deg(np.arctan(1.45)),
+                 color=INK, lw=1.4))
+ax.text(1.02, 0.42, r"$\alpha$", fontsize=13)
 
-ax.set(xlim=(-0.6, v0_mag + 0.8), ylim=(-0.6, y_pokazu + 2.2))
-ax.set_aspect("equal")
-ax.set_xlabel("Oś pozioma x [m]", loc="right", fontsize=12)
-ax.set_ylabel("Oś pionowa y [m]", loc="top", fontsize=12)
+# Punkt na torze z wektorami sił
+idx = 70
+px, py = xs[idx], ys_op[idx]
+tx = xs[idx + 1] - xs[idx - 1]
+ty = ys_op[idx + 1] - ys_op[idx - 1]
+tnorm = np.hypot(tx, ty)
+ux, uy = tx / tnorm, ty / tnorm
 
-ax.spines["left"].set_position("zero")
-ax.spines["bottom"].set_position("zero")
-ax.spines["right"].set_color("none")
-ax.spines["top"].set_color("none")
-ax.plot(1, 0, ">k", transform=ax.get_yaxis_transform(), clip_on=False)
-ax.plot(0, 1, "^k", transform=ax.get_xaxis_transform(), clip_on=False)
-ax.text(-0.2, -0.25, "0", fontsize=12, ha="right")
+ax.scatter([px], [py], color=INK, s=75, zorder=5)
+ax.annotate("", xy=(px + 1.15 * ux, py + 1.15 * uy), xytext=(px, py),
+            arrowprops={"arrowstyle": "->", "color": GREEN, "lw": 2.2})
+ax.text(px + 1.2 * ux, py + 1.2 * uy + 0.08, r"$\vec{v}$", color=GREEN, fontsize=13)
 
-t_sch = np.linspace(0, t_calkowity, 500)
-x_sch = v0_mag * np.cos(alpha_sch_rad) * t_sch
-y_sch = (v0_mag * np.sin(alpha_sch_rad) * t_sch) - (0.5 * g * t_sch**2)
-ax.plot(x_sch, y_sch, color=BLUE, linestyle="--", alpha=0.7)
+ax.annotate("", xy=(px, py - 1.15), xytext=(px, py),
+            arrowprops={"arrowstyle": "->", "color": BLUE, "lw": 2.2})
+ax.text(px + 0.12, py - 1.1, r"$\vec{F}_g = m\vec{g}$", color=BLUE, fontsize=12)
 
-ax.annotate(
-    "",
-    xy=(v0_mag * np.cos(alpha_sch_rad) * 0.45, v0_mag * np.sin(alpha_sch_rad) * 0.45),
-    xytext=(0, 0),
-    arrowprops=dict(arrowstyle="->", color=ORANGE, lw=2.5),
-)
-ax.text(
-    v0_mag * np.cos(alpha_sch_rad) * 0.22 - 0.15,
-    v0_mag * np.sin(alpha_sch_rad) * 0.22 + 0.2,
-    r"$\vec{v}_0$",
-    color=ORANGE,
-    fontsize=14,
-    fontweight="bold",
-)
+ax.annotate("", xy=(px - 0.95 * ux, py - 0.95 * uy), xytext=(px, py),
+            arrowprops={"arrowstyle": "->", "color": PURPLE, "lw": 2.2})
+ax.text(px - 1.05 * ux - 0.45, py - 0.95 * uy - 0.2,
+        r"$\vec{F}_{\mathrm{op}}$", color=PURPLE, fontsize=12)
 
-ax.add_patch(Arc((0, 0), 1.4, 1.4, theta1=0, theta2=alpha_sch_deg, color=INK, lw=1.2))
-ax.text(0.85, 0.3, r"$\alpha$", fontsize=12, color=INK)
-
-ax.plot(x_pokazu, y_pokazu, "o", color=ORANGE, markersize=10, zorder=5)
-
-ax.arrow(
-    x_pokazu,
-    y_pokazu,
-    vx_pokazu * 0.28,
-    vy_pokazu * 0.28,
-    head_width=0.12,
-    head_length=0.16,
-    fc=ORANGE,
-    ec=ORANGE,
-    lw=2,
-    zorder=4,
-)
-ax.text(
-    x_pokazu + vx_pokazu * 0.28 + 0.15,
-    y_pokazu + vy_pokazu * 0.28 + 0.05,
-    r"$\vec{v}$",
-    color=ORANGE,
-    fontsize=14,
-    fontweight="bold",
-)
-
-dlugosc_wektora_g = 1.1
-ax.arrow(
-    x_pokazu,
-    y_pokazu,
-    0,
-    -dlugosc_wektora_g,
-    head_width=0.12,
-    head_length=0.16,
-    fc=BLUE,
-    ec=BLUE,
-    lw=2,
-    zorder=4,
-)
-ax.text(
-    x_pokazu + 0.15,
-    y_pokazu - dlugosc_wektora_g * 0.6,
-    r"$\vec{F}_g = m\vec{g}$",
-    color=BLUE,
-    fontsize=12,
-)
-
-ax.arrow(
-    x_pokazu,
-    y_pokazu,
-    -vx_pokazu * 0.22,
-    -vy_pokazu * 0.22,
-    head_width=0.12,
-    head_length=0.16,
-    fc=BLUE,
-    ec=BLUE,
-    lw=2,
-    zorder=4,
-)
-ax.text(
-    x_pokazu - vx_pokazu * 0.22 - 0.55,
-    y_pokazu - vy_pokazu * 0.22 - 0.15,
-    r"$\vec{F}_{\mathrm{op}}$",
-    color=BLUE,
-    fontsize=12,
-)
-
+ax.set_title("Model: rzut ukośny w polu grawitacyjnym (próżnia i opór powietrza)", loc="left")
+ax.legend(loc="upper right", frameon=True)
 zapisz(fig, "schemat")
 
 # ---------------------------------------------------------------------
@@ -205,7 +149,7 @@ v_id = np.hypot(vx_id, vy_id)
 Ep_id = m * g * y_id
 Ek_id = 0.5 * m * v_id**2
 
-fig, axes = plt.subplots(1, 2, figsize=(11, 4.4))
+fig, axes = plt.subplots(1, 2, figsize=(11, 4.4), layout="constrained")
 axes[0].plot(x_id, y_id, color=BLUE, label="Tor $y(x)$")
 axes[0].scatter([Z_id / 2, Z_id], [H_id, 0.0], color=ORANGE, zorder=4)
 axes[0].axvline(Z_id / 2, color=INK, ls=":", lw=1.0, alpha=0.5)
@@ -240,10 +184,9 @@ axes[1].set(
     title="Składowe prędkości i szybkość",
 )
 axes[1].legend(loc="lower left", ncol=2, fontsize=9)
-fig.tight_layout()
 zapisz(fig, "tor_i_predkosc_idealny")
 
-fig, ax = plt.subplots(figsize=(10, 4.2))
+fig, ax = plt.subplots(figsize=(10, 4.2), layout="constrained")
 ax.plot(t_id, Ek_id, color=ORANGE, label="Kinetyczna $E_k$")
 ax.plot(t_id, Ep_id, color=BLUE, label="Potencjalna $E_p$")
 ax.plot(t_id, Ek_id + Ep_id, color=GREEN, ls="--", label="Całkowita $E$")
@@ -251,10 +194,11 @@ ax.axvline(tw_id, color=INK, ls=":", lw=1.0, alpha=0.5)
 ax.set(xlabel="Czas t [s]", ylabel="Energia [J]", ylim=(-0.03 * E0, 1.15 * E0))
 ax.set_title("Zachowanie energii mechanicznej w rzucie bez oporu", loc="left")
 ax.legend(loc="center right", fontsize=9)
-fig.tight_layout()
 zapisz(fig, "energia_idealna")
 
-assert np.max(np.abs(Ek_id + Ep_id - E0)) < 1e-11
+blad_E = np.max(np.abs(Ek_id + Ep_id - E0))
+assert blad_E < 1e-11
+print(f"Kontrola energii (model idealny): max błąd = {blad_E:.3e} J\n")
 
 
 # ---------------------------------------------------------------------
@@ -313,16 +257,30 @@ t_kw, x_kw, y_kw, vx_kw, vy_kw = symuluj_rzut(V0, alpha, "kwadratowy")
 v_gr = g / gamma
 x_lin_an = (v0x / gamma) * (1.0 - np.exp(-gamma * t_lin))
 y_lin_an = ((v0y + v_gr) / gamma) * (1.0 - np.exp(-gamma * t_lin)) - v_gr * t_lin
-assert np.max(np.abs(x_lin - x_lin_an)) < 1e-7
-assert np.max(np.abs(y_lin - y_lin_an)) < 1e-7
+blad_lin_x = np.max(np.abs(x_lin - x_lin_an))
+blad_lin_y = np.max(np.abs(y_lin - y_lin_an))
+assert blad_lin_x < 1e-7 and blad_lin_y < 1e-7
+print(f"Kontrola (opór liniowy): błąd x = {blad_lin_x:.3e} m, błąd y = {blad_lin_y:.3e} m")
 
 v_lin = np.hypot(vx_lin, vy_lin)
 v_kw = np.hypot(vx_kw, vy_kw)
 E_lin = 0.5 * m * v_lin**2 + m * g * y_lin
 E_kw = 0.5 * m * v_kw**2 + m * g * y_kw
 assert np.max(np.diff(E_lin)) < 1e-10 and np.max(np.diff(E_kw)) < 1e-10
+print("Kontrola dysypacji: energia w obu modelach z oporem nie rośnie.\n")
 
-fig, ax = plt.subplots(figsize=(10, 4.6))
+print("=== WYNIKI DO TABELI W ROZDZIALE 6.1 ===")
+for nazwa, tt, xx, yy, vv, EE in [
+    ("Próżnia", t_id, x_id, y_id, v_id, Ek_id + Ep_id),
+    ("Opór liniowy", t_lin, x_lin, y_lin, v_lin, E_lin),
+    ("Opór kwadratowy", t_kw, x_kw, y_kw, v_kw, E_kw),
+]:
+    strata = (1.0 - EE[-1] / E0) * 100.0
+    print(f"{nazwa:16s} | Z = {xx[-1]:6.2f} m | H_max = {np.max(yy):6.2f} m | "
+          f"tc = {tt[-1]:5.2f} s | v(tc) = {vv[-1]:5.2f} m/s | strata E = {strata:5.1f} %")
+print()
+
+fig, ax = plt.subplots(figsize=(10, 4.6), layout="constrained")
 ax.plot(x_id, y_id, "--", color=BLUE, label="Próżnia (model idealny)")
 ax.plot(x_lin, y_lin, color=GREEN, label=f"Opór liniowy ($b = {b:.3f}$ kg/s)")
 ax.plot(x_kw, y_kw, color=ORANGE, label=f"Opór kwadratowy ($c = {c:.4f}$ kg/m)")
@@ -334,10 +292,9 @@ ax.set(
 )
 ax.set_title("Porównanie trajektorii lotu w trzech modelach", loc="left")
 ax.legend(loc="upper right")
-fig.tight_layout()
 zapisz(fig, "porownanie_torow")
 
-fig, axes = plt.subplots(1, 2, figsize=(11, 4.4))
+fig, axes = plt.subplots(1, 2, figsize=(11, 4.4), layout="constrained")
 axes[0].plot(t_id, Ek_id + Ep_id, "--", color=BLUE, label="Próżnia")
 axes[0].plot(t_lin, E_lin, color=GREEN, label="Opór liniowy")
 axes[0].plot(t_kw, E_kw, color=ORANGE, label="Opór kwadratowy")
@@ -359,7 +316,6 @@ axes[1].set(
     ylim=(0, V0 * 1.08),
 )
 axes[1].legend(loc="lower left")
-fig.tight_layout()
 zapisz(fig, "energia_i_predkosc_opor")
 
 # ---------------------------------------------------------------------
@@ -368,7 +324,7 @@ zapisz(fig, "energia_i_predkosc_opor")
 katy_deg = np.linspace(5.0, 85.0, 81)
 katy_rad = np.deg2rad(katy_deg)
 
-fig, ax = plt.subplots(figsize=(10, 4.5))
+fig, ax = plt.subplots(figsize=(10, 4.5), layout="constrained")
 Z_proznia = (V0**2 * np.sin(2.0 * katy_rad)) / g
 ax.plot(katy_deg, Z_proznia, "--", color=BLUE, label="Próżnia (opt. 45.0°)")
 
@@ -392,10 +348,9 @@ ax.axvline(45.0, color=INK, ls=":", lw=1.0, alpha=0.5)
 ax.set(xlabel="Kąt wyrzutu [°]", ylabel="Zasięg Z [m]", xlim=(5, 85))
 ax.set_title("Zależność zasięgu od kąta wyrzutu — przesunięcie optimum", loc="left")
 ax.legend(loc="upper right", fontsize=9)
-fig.tight_layout()
 zapisz(fig, "optymalny_kat")
 
-fig, ax = plt.subplots(figsize=(10, 4.5))
+fig, ax = plt.subplots(figsize=(10, 4.5), layout="constrained")
 ax.plot(x_id, y_id, "--", color=BLUE, label="$c/m = 0$ (próżnia)")
 for mnoznik, color in [(0.5, GREEN), (1.0, ORANGE), (3.0, PURPLE), (8.0, INK)]:
     c_test = mnoznik * c
@@ -410,7 +365,6 @@ ax.set(
 )
 ax.set_title("Asymetria krzywej balistycznej wraz ze wzrostem oporu c/m", loc="left")
 ax.legend(loc="upper right", fontsize=9)
-fig.tight_layout()
 zapisz(fig, "wplyw_oporu")
 
 print(f"Gotowe: zapisano 7 rysunków w {OUT.resolve()}")
