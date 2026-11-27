@@ -79,15 +79,21 @@ Wszystkie wielkości wyrażamy w układzie SI. Ponieważ jednostką SI kąta pł
 
 W modelu idealnym jedyną siłą działającą na ciało po wyrzuceniu jest stała siła ciężkości skierowana pionowo w dół:
 
-$$\vec{F}_g = (0,\,-mg).$$
+$$
+\vec{F}_g = (0,\,-mg).
+$$
 
 Z drugiej zasady Newtona $m\vec{a} = \vec{F}_g$ otrzymujemy układ dwóch niezależnych równań różniczkowych dla współrzędnych $x$ i $y$:
 
-$$m\frac{d^2x}{dt^2} = 0, \qquad m\frac{d^2y}{dt^2} = -mg.$$
+$$
+m\frac{d^2x}{dt^2} = 0, \qquad m\frac{d^2y}{dt^2} = -mg.
+$$
 
 Po podzieleniu obu równań przez masę $m$:
 
-$$\ddot{x} = 0, \qquad \ddot{y} = -g.$$
+$$
+\ddot{x} = 0, \qquad \ddot{y} = -g.
+$$
 
 Kropki oznaczają pochodne po czasie: $\dot{x} = v_x$, $\dot{y} = v_y$ oraz $\ddot{x} = a_x$, $\ddot{y} = a_y$. Masa $m$ skraca się — w próżni tor lotu nie zależy od masy rzuconego ciała. Co więcej, równania są rozprzężone, więc ruch poziomy i pionowy można rozwiązać osobno.
 
@@ -95,25 +101,39 @@ Kropki oznaczają pochodne po czasie: $\dot{x} = v_x$, $\dot{y} = v_y$ oraz $\dd
 
 W chwili wyrzutu $t = 0$ ciało znajduje się w początku układu współrzędnych i ma prędkość początkową $\vec{v}_0$ skierowaną pod kątem $\alpha$ do osi $x$:
 
-$$ x(0) = 0, \qquad y(0) = 0, $$
+$$
+ x(0) = 0, \qquad y(0) = 0, 
+ $$
 
-$$v_x(0) = v_0\cos\alpha, \qquad v_y(0) = v_0\sin\alpha.$$
+$$
+v_x(0) = v_0\cos\alpha, \qquad v_y(0) = v_0\sin\alpha.
+$$
 
 Jednokrotne całkowanie równań przyspieszenia po czasie daje składowe prędkości:
 
-$$v_x(t) = v_0\cos\alpha = \mathrm{const},$$
+$$
+v_x(t) = v_0\cos\alpha = \mathrm{const},
+$$
 
-$$v_y(t) = v_0\sin\alpha - gt.$$
+$$
+v_y(t) = v_0\sin\alpha - gt.
+$$
 
 Wartość chwilowej prędkości (szybkość) wynosi zatem:
 
-$$v(t) = \sqrt{v_x(t)^2 + v_y(t)^2} = \sqrt{v_0^2 - 2v_0gt\sin\alpha + g^2t^2}.$$
+$$
+v(t) = \sqrt{v_x(t)^2 + v_y(t)^2} = \sqrt{v_0^2 - 2v_0gt\sin\alpha + g^2t^2}.
+$$
 
 Ponowne całkowanie po czasie, z uwzględnieniem $x(0) = 0$ i $y(0) = 0$, prowadzi do równań położenia:
 
-$$x(t) = v_0t\cos\alpha,$$
+$$
+x(t) = v_0t\cos\alpha,
+$$
 
-$$y(t) = v_0t\sin\alpha - \frac{1}{2}gt^2.$$
+$$
+y(t) = v_0t\sin\alpha - \frac{1}{2}gt^2.
+$$
 
 Wzdłuż osi $x$ ciało porusza się ruchem jednostajnym prostoliniowym, a wzdłuż osi $y$ — ruchem jednostajnie opóźnionym podczas wznoszenia i jednostajnie przyspieszonym podczas opadania.
 
@@ -121,11 +141,15 @@ Wzdłuż osi $x$ ciało porusza się ruchem jednostajnym prostoliniowym, a wzdł
 
 Dla $\alpha \neq \frac{\pi}{2}$ (czyli $\cos\alpha \neq 0$) możemy wyznaczyć czas z równania poziomego:
 
-$$t = \frac{x}{v_0\cos\alpha}$$
+$$
+t = \frac{x}{v_0\cos\alpha}
+$$
 
 i podstawić go do wyrażenia na $y(t)$, otrzymując równanie toru $y(x)$:
 
-$$y(x) = x\tan\alpha - \frac{g}{2v_0^2\cos^2\alpha}x^2.$$
+$$
+y(x) = x\tan\alpha - \frac{g}{2v_0^2\cos^2\alpha}x^2.
+$$
 
 Jest to funkcja kwadratowa zmiennej $x$ o ujemnym współczynniku przy $x^2$ — torem lotu w próżni jest **parabola** z ramionami skierowanymi w dół.
 
@@ -133,21 +157,29 @@ Z równań ruchu wyznaczamy cztery podstawowe parametry lotu:
 
 1. **Czas wznoszenia $t_w$** — w najwyższym punkcie toru pionowa składowa prędkości zeruje się ($v_y(t_w) = 0$):
 
-   $$v_0\sin\alpha - gt_w = 0 \implies t_w = \frac{v_0\sin\alpha}{g}.$$
+   $$
+   v_0\sin\alpha - gt_w = 0 \implies t_w = \frac{v_0\sin\alpha}{g}.
+   $$
 
 2. **Maksymalna wysokość $H_{\max}$** — wartość $y(t)$ w chwili $t = t_w$:
 
-   $$H_{\max} = y(t_w) = v_0\sin\alpha \cdot \frac{v_0\sin\alpha}{g} - \frac{1}{2}g\left(\frac{v_0\sin\alpha}{g}\right)^2 = \frac{v_0^2\sin^2\alpha}{2g}.$$
+   $$
+   H_{\max} = y(t_w) = v_0\sin\alpha \cdot \frac{v_0\sin\alpha}{g} - \frac{1}{2}g\left(\frac{v_0\sin\alpha}{g}\right)^2 = \frac{v_0^2\sin^2\alpha}{2g}.
+   $$
 
 3. **Całkowity czas lotu $t_c$** — dodatnie rozwiązanie równania $y(t_c) = 0$:
 
-   $$t_c\left(v_0\sin\alpha - \frac{1}{2}gt_c\right) = 0 \implies t_c = \frac{2v_0\sin\alpha}{g} = 2t_w.$$
+   $$
+   t_c\left(v_0\sin\alpha - \frac{1}{2}gt_c\right) = 0 \implies t_c = \frac{2v_0\sin\alpha}{g} = 2t_w.
+   $$
 
    Czas wznoszenia jest równy czasowi opadania, co świadczy o symetrii toru.
 
 4. **Zasięg rzutu $Z$** — współrzędna $x$ w chwili upadku $t = t_c$:
 
-   $$Z = x(t_c) = v_0\cos\alpha \cdot \frac{2v_0\sin\alpha}{g} = \frac{v_0^2\sin(2\alpha)}{g},$$
+   $$
+   Z = x(t_c) = v_0\cos\alpha \cdot \frac{2v_0\sin\alpha}{g} = \frac{v_0^2\sin(2\alpha)}{g},
+   $$
 
    gdzie wykorzystano tożsamość trygonometryczną $2\sin\alpha\cos\alpha = \sin(2\alpha)$.
 
@@ -159,15 +191,21 @@ Z równań ruchu wyznaczamy cztery podstawowe parametry lotu:
 
 Jeżeli ciało zostaje wyrzucone z punktu $(0, y_0)$ położonego ponad poziomem lądowania ($y = 0$), równanie pionowe przyjmuje postać:
 
-$$y(t) = y_0 + v_0t\sin\alpha - \frac{1}{2}gt^2.$$
+$$
+y(t) = y_0 + v_0t\sin\alpha - \frac{1}{2}gt^2.
+$$
 
 Warunek upadku $y(t_c) = 0$ prowadzi do równania kwadratowego względem czasu. Fizyczny (dodatni) pierwiastek daje wydłużony czas lotu:
 
-$$t_c = \frac{v_0\sin\alpha + \sqrt{v_0^2\sin^2\alpha + 2gy_0}}{g},$$
+$$
+t_c = \frac{v_0\sin\alpha + \sqrt{v_0^2\sin^2\alpha + 2gy_0}}{g},
+$$
 
 a zasięg wynosi wówczas:
 
-$$Z = v_0t_c\cos\alpha = \frac{v_0\cos\alpha}{g}\left(v_0\sin\alpha + \sqrt{v_0^2\sin^2\alpha + 2gy_0}\right).$$
+$$
+Z = v_0t_c\cos\alpha = \frac{v_0\cos\alpha}{g}\left(v_0\sin\alpha + \sqrt{v_0^2\sin^2\alpha + 2gy_0}\right).
+$$
 
 Dla $y_0 > 0$ tor traci symetrię, prędkość przy upadku jest większa niż $v_0$, a kąt maksymalizujący zasięg przesuwa się poniżej $\frac{\pi}{4}$ ($45^\circ$). Podstawienie $y_0 = 0$ natychmiast przywraca wzory z podrozdziału 2.3.
 
@@ -189,9 +227,13 @@ Przyjmujemy przyspieszenie ziemskie $g = 9{,}81\,\mathrm{m/s^2}$, masę ciała $
 
 Równania ruchu dla tych parametrów (z $t$ w sekundach) mają postać:
 
-$$x(t) = 12{,}31\,t, \qquad y(t) = 33{,}83\,t - 4{,}905\,t^2,$$
+$$
+x(t) = 12{,}31\,t, \qquad y(t) = 33{,}83\,t - 4{,}905\,t^2,
+$$
 
-$$v_x(t) = 12{,}31, \qquad v_y(t) = 33{,}83 - 9{,}81\,t.$$
+$$
+v_x(t) = 12{,}31, \qquad v_y(t) = 33{,}83 - 9{,}81\,t.
+$$
 
 ![Tor paraboliczny rzutu ukośnego oraz wykresy składowych prędkości i szybkości w funkcji czasu](files/rzut_ukosny/tor_i_predkosc_idealny.png)
 
@@ -213,21 +255,31 @@ Podczas jednego lotu w próżni:
 
 Przyjmując zerowy poziom energii potencjalnej na wysokości $y = 0$, energia potencjalna grawitacji oraz energia kinetyczna wynoszą:
 
-$$E_p(t) = mgy(t) = mg\left(v_0t\sin\alpha - \frac{1}{2}gt^2\right),$$
+$$
+E_p(t) = mgy(t) = mg\left(v_0t\sin\alpha - \frac{1}{2}gt^2\right)
+$$
 
-$$E_k(t) = \frac{1}{2}m\left(v_x^2 + v_y^2\right) = \frac{1}{2}m\left[v_0^2\cos^2\alpha + (v_0\sin\alpha - gt)^2\right].$$
+$$
+E_k(t) = \frac{1}{2}m\left(v_x^2 + v_y^2\right) = \frac{1}{2}m\left[v_0^2\cos^2\alpha + (v_0\sin\alpha - gt)^2\right].
+$$
 
 Po rozwinięciu kwadratu i zsumowaniu obu wyrażeń składniki zależne od czasu redukują się:
 
-$$E = E_k(t) + E_p(t) = \frac{1}{2}mv_0^2(\cos^2\alpha + \sin^2\alpha) = \frac{1}{2}mv_0^2 = \mathrm{const}.$$
+$$
+E = E_k(t) + E_p(t) = \frac{1}{2}mv_0^2(\cos^2\alpha + \sin^2\alpha) = \frac{1}{2}mv_0^2 = \mathrm{const}.
+$$
 
 Zasadę zachowania energii można sprawdzić bezpośrednio z równań ruchu bez wyznaczania jawnej postaci $x(t)$ i $y(t)$:
 
-$$\frac{dE}{dt} = m(v_x\dot{v}_x + v_y\dot{v}_y) + mg\dot{y} = m\big(v_x \cdot 0 + v_y(-g)\big) + mgv_y = 0.$$
+$$
+\frac{dE}{dt} = m(v_x\dot{v}_x + v_y\dot{v}_y) + mg\dot{y} = m\big(v_x \cdot 0 + v_y(-g)\big) + mgv_y = 0.
+$$
 
 W najwyższym punkcie toru ($t = t_w$) tylko część energii początkowej zamienia się w energię potencjalną:
 
-$$E_p(t_w) = mgH_{\max} = \frac{1}{2}mv_0^2\sin^2\alpha, \qquad E_k(t_w) = \frac{1}{2}mv_0^2\cos^2\alpha.$$
+$$
+E_p(t_w) = mgH_{\max} = \frac{1}{2}mv_0^2\sin^2\alpha, \qquad E_k(t_w) = \frac{1}{2}mv_0^2\cos^2\alpha.
+$$
 
 Im mniejszy kąt $\alpha$, tym większa część energii pozostaje przez cały lot w postaci energii kinetycznej ruchu poziomego.
 
@@ -239,7 +291,9 @@ Im mniejszy kąt $\alpha$, tym większa część energii pozostaje przez cały l
 
 Układ dwóch równań drugiego rzędu można zapisać jako układ czterech równań różniczkowych pierwszego rzędu dla wektora stanu $\vec{u}(t) = [x, y, v_x, v_y]^T$:
 
-$$\frac{d}{dt} \begin{pmatrix} x \\ y \\ v_x \\ v_y \\ \end{pmatrix} = \begin{pmatrix} v_x \\ v_y \\ a_x(v_x, v_y) \\ a_y(v_x, v_y) \\ \end{pmatrix}.$$
+$$
+\frac{d}{dt} \begin{pmatrix} x \\ y \\ v_x \\ v_y \\ \end{pmatrix} = \begin{pmatrix} v_x \\ v_y \\ a_x(v_x, v_y) \\ a_y(v_x, v_y) \\ \end{pmatrix}.
+$$
 
 W modelu idealnym $a_x = 0$ oraz $a_y = -g$. Taki zapis pozwala w kolejnym rozdziale w prosty sposób dodać dowolną siłę oporu powietrza i zastosować solver numeryczny `solve_ivp`.
 
@@ -253,23 +307,35 @@ W rzeczywistym ośrodku na poruszające się ciało działa siła oporu $\vec{F}
 
 Dla małych prędkości lub małych liczb Reynoldsa przyjmujemy siłę oporu proporcjonalną do prędkości:
 
-$$\vec{F}_{\mathrm{op}} = -b\vec{v}, \qquad b > 0.$$
+$$
+\vec{F}_{\mathrm{op}} = -b\vec{v}, \qquad b > 0.
+$$
 
 Równania ruchu nadal pozostają rozprzężone:
 
-$$m\ddot{x} = -b\dot{x}, \qquad m\ddot{y} = -mg - b\dot{y}.$$
+$$
+m\ddot{x} = -b\dot{x}, \qquad m\ddot{y} = -mg - b\dot{y}.
+$$
 
 Wprowadzając współczynnik tłumienia $\gamma = b/m$ (jednostka $\mathrm{s^{-1}}$) oraz prędkość graniczną swobodnego spadku $v_{\mathrm{gr}} = mg/b = g/\gamma$, otrzymujemy dokładne rozwiązanie analityczne:
 
-$$v_x(t) = v_0\cos\alpha\,e^{-\gamma t}, \qquad x(t) = \frac{v_0\cos\alpha}{\gamma}\left(1 - e^{-\gamma t}\right),$$
+$$
+v_x(t) = v_0\cos\alpha\,e^{-\gamma t}, \qquad x(t) = \frac{v_0\cos\alpha}{\gamma}\left(1 - e^{-\gamma t}\right),
+$$
 
-$$v_y(t) = \left(v_0\sin\alpha + v_{\mathrm{gr}}\right)e^{-\gamma t} - v_{\mathrm{gr}},$$
+$$
+v_y(t) = \left(v_0\sin\alpha + v_{\mathrm{gr}}\right)e^{-\gamma t} - v_{\mathrm{gr}},
+$$
 
-$$y(t) = \frac{v_0\sin\alpha + v_{\mathrm{gr}}}{\gamma}\left(1 - e^{-\gamma t}\right) - v_{\mathrm{gr}}t.$$
+$$
+y(t) = \frac{v_0\sin\alpha + v_{\mathrm{gr}}}{\gamma}\left(1 - e^{-\gamma t}\right) - v_{\mathrm{gr}}t.
+$$
 
 Współrzędna $x(t)$ dąży do pionowej asymptoty $x_\infty = \frac{v_0\cos\alpha}{\gamma}$, której ciało nie może przekroczyć niezależnie od czasu lotu. Czas wznoszenia wynosi:
 
-$$t_{w,\mathrm{lin}} = \frac{1}{\gamma}\ln\left(1 + \frac{\gamma v_0\sin\alpha}{g}\right),$$
+$$
+t_{w,\mathrm{lin}} = \frac{1}{\gamma}\ln\left(1 + \frac{\gamma v_0\sin\alpha}{g}\right),
+$$
 
 natomiast całkowity czas lotu $t_c$ (rozwiązanie równania przestępnego $y(t_c) = 0$) wyznacza się numerycznie.
 
@@ -277,15 +343,21 @@ natomiast całkowity czas lotu $t_c$ (rozwiązanie równania przestępnego $y(t_
 
 Dla ciał makroskopowych poruszających się w powietrzu z typowymi prędkościami rzędu kilku–kilkudziesięciu metrów na sekundę dominuje opór turbulentny, proporcjonalny do kwadratu szybkości:
 
-$$\vec{F}_{\mathrm{op}} = -c\,v\vec{v}, \qquad c = \frac{1}{2}\rho C_d S, \qquad v = \sqrt{v_x^2 + v_y^2}.$$
+$$
+\vec{F}_{\mathrm{op}} = -c\,v\vec{v}, \qquad c = \frac{1}{2}\rho C_d S, \qquad v = \sqrt{v_x^2 + v_y^2}.
+$$
 
 Tutaj $\rho \approx 1{,}225\,\mathrm{kg/m^3}$ jest gęstością powietrza, $C_d$ bezwymiarowym współczynnikiem oporu aerodynamicznego (dla gładkiej kuli $C_d \approx 0{,}47$), a $S = \pi R^2$ polem przekroju poprzecznego ciała.
 
 Układ równań ruchu przyjmuje postać:
 
-$$\ddot{x} = -\frac{c}{m}\sqrt{\dot{x}^2 + \dot{y}^2}\,\dot{x},$$
+$$
+\ddot{x} = -\frac{c}{m}\sqrt{\dot{x}^2 + \dot{y}^2}\,\dot{x},
+$$
 
-$$\ddot{y} = -g - \frac{c}{m}\sqrt{\dot{x}^2 + \dot{y}^2}\,\dot{y}.$$
+$$
+\ddot{y} = -g - \frac{c}{m}\sqrt{\dot{x}^2 + \dot{y}^2}\,\dot{y}.
+$$
 
 W tym modelu **ruch poziomy i pionowy są ze sobą sprzężone** przez czynnik $v = \sqrt{v_x^2 + v_y^2}$. Ponieważ równania są nieliniowe, nie mają rozwiązania w postaci funkcji elementarnych i rozwiązujemy je numerycznie. Prędkość graniczna w locie pionowym wynosi $v_{\mathrm{gr,kw}} = \sqrt{mg/c}$.
 
@@ -299,7 +371,9 @@ W obliczeniach przyjęto kulę o parametrach $m = 0{,}20\,\mathrm{kg}$, $R = 0{,
 
 W obecności oporu powietrza siła oporu wykonuje ujemną pracę, rozpraszając energię mechaniczną na ciepło i ruch wirowy powietrza:
 
-$$\frac{dE}{dt} = \vec{F}_{\mathrm{op}} \cdot \vec{v} = \begin{cases} -bv^2 \le 0 & \mathrm{(op\acute{o}r\ liniowy)}, \\ -cv^3 \le 0 & \mathrm{(op\acute{o}r\ kwadratowy)}. \end{cases}$$
+$$
+\frac{dE}{dt} = \vec{F}_{\mathrm{op}} \cdot \vec{v} = \begin{cases} -bv^2 \le 0 & \mathrm{(op\acute{o}r\ liniowy)}, \\ -cv^3 \le 0 & \mathrm{(op\acute{o}r\ kwadratowy)}. \end{cases
+$$
 
 Energia całkowita $E(t)$ maleje monotonicznie przez cały czas lotu, przy czym najszybciej ubywa jej tuż po wyrzucie, gdy szybkość $v$ jest największa. Konsekwencją strat energii jest to, że prędkość uderzenia w ziemię jest mniejsza od prędkości początkowej ($v(t_c) < v_0$).
 
