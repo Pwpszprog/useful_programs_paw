@@ -771,7 +771,7 @@ Uwzględnienie oporu powietrza zmienia jakościowo dynamikę układu. Dla oporu 
 - [x] Zbadano wpływ oporu powietrza na optymalny kąt wyrzutu.
 - [x] Dołączono kompletny kod generujący 7 wykresów oraz sprawdzający błędy numeryczne.
 - [x] Uruchomiono skrypt i uzupełniono tabele w rozdziałach 3 i 6.
-- [ ] Sprawdzone przez prowadzadzącego. 
+- [ ] Sprawdzone przez prowadzącego. 
 
 ---
 
