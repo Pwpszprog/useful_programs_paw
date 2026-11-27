@@ -47,7 +47,7 @@ Celem raportu jest wyprowadzenie równań ruchu dla **rzutu ukośnego**, wyznacz
 
 Początek układu współrzędnych $(0, 0)$ umieszczamy w punkcie wyrzutu. Oś $x$ skierowana jest poziomo zgodnie z kierunkiem rzutu, a oś $y$ — pionowo w górę. Lot kończy się w chwili ponownego osiągnięcia poziomu $y = 0$.
 
-Obliczenia w dalszej części raportu wykonano dla parametrów początkowych wynikających z numeru indeksu: prędkości początkowej $v_0 = \mathrm{[36]}\,\mathrm{m/s}$ oraz kąta wyrzutu odpowiadającego $\mathrm{[70]}^\circ$, czyli $\alpha \approx \mathrm{[1,22]}\,\mathrm{rad}$ w jednostkach SI.
+Obliczenia w dalszej części raportu wykonano dla parametrów początkowych wynikających z numeru indeksu: prędkości początkowej $v_0 = \mathrm{[36]}\,\mathrm{m/s}$ oraz kąta wyrzutu odpowiadającego $\mathrm{70}^\circ$, czyli $\alpha \approx \mathrm{1,22}\,\mathrm{rad}$ w jednostkach SI.
 
 ![Schemat rzutu ukośnego: układ współrzędnych (x, y), wektor prędkości początkowej v0 pod kątem alfa, tor lotu oraz wektory siły ciężkości i siły oporu powietrza](files/rzut_ukosny/schemat.png)
 
@@ -167,6 +167,7 @@ Z równań ruchu wyznaczamy cztery podstawowe parametry lotu:
 1. **Czas wznoszenia $t_w$** — w najwyższym punkcie toru pionowa składowa prędkości zeruje się ($v_y(t_w) = 0$):
    $$
    v_0\sin\alpha - gt_w = 0
+   
    \implies
    t_w = \frac{v_0\sin\alpha}{g}.
    $$
