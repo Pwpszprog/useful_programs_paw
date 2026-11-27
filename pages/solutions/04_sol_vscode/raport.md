@@ -757,7 +757,7 @@ print(f"Gotowe: zapisano 7 rysunków w {OUT.resolve()}")
         └── wplyw_oporu.png
 ```
 
-**Ważne dla GitHuba i VS Code:** obrazy są osadzone za pomocą ścieżek względnych (`files/rzut_ukosny/...png`). Umieszczając raport w repozytorium lub oddając go w archiwum, należy dołączyć cały katalog `files/rzut_ukosny`.
+**Ważne dla GitHuba i VS Code:** obrazy są osadzone za pomocą ścieżek względnych (`files/rzut_ukosny/schemat.png`). Umieszczając raport w repozytorium lub oddając go w archiwum, należy dołączyć cały katalog `files/rzut_ukosny`.
 
 ## 8. Ograniczenia modelu i propozycja doświadczenia
 
