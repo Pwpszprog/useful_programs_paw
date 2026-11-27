@@ -47,7 +47,7 @@ Celem raportu jest wyprowadzenie równań ruchu dla **rzutu ukośnego**, wyznacz
 
 Początek układu współrzędnych $(0, 0)$ umieszczamy w punkcie wyrzutu. Oś $x$ skierowana jest poziomo zgodnie z kierunkiem rzutu, a oś $y$ — pionowo w górę. Lot kończy się w chwili ponownego osiągnięcia poziomu $y = 0$.
 
-Obliczenia w dalszej części raportu wykonano dla parametrów początkowych wynikających z numeru indeksu: prędkości początkowej $v_0 = \mathrm{[36]}\,\mathrm{m/s}$ oraz kąta wyrzutu odpowiadającego $\mathrm{70}^\circ$, czyli $\alpha \approx \mathrm{1,22}\,\mathrm{rad}$ w jednostkach SI.
+Obliczenia w dalszej części raportu wykonano dla parametrów początkowych wynikających z numeru indeksu: prędkości początkowej $v_0 = 36\,\mathrm{m/s}$ oraz kąta wyrzutu odpowiadającego $70^\circ$, czyli $\alpha \approx 1{,}22\,\mathrm{rad}$ w jednostkach SI.
 
 ![Schemat rzutu ukośnego: układ współrzędnych (x, y), wektor prędkości początkowej v0 pod kątem alfa, tor lotu oraz wektory siły ciężkości i siły oporu powietrza](files/rzut_ukosny/schemat.png)
 
@@ -79,25 +79,15 @@ Wszystkie wielkości wyrażamy w układzie SI. Ponieważ jednostką SI kąta pł
 
 W modelu idealnym jedyną siłą działającą na ciało po wyrzuceniu jest stała siła ciężkości skierowana pionowo w dół:
 
-$$
-\vec{F}_g = (0,\,-mg).
-$$
+$$\vec{F}_g = (0,\,-mg).$$
 
 Z drugiej zasady Newtona $m\vec{a} = \vec{F}_g$ otrzymujemy układ dwóch niezależnych równań różniczkowych dla współrzędnych $x$ i $y$:
 
-$$
-m\frac{d^2x}{dt^2} = 0,
-\qquad
-m\frac{d^2y}{dt^2} = -mg.
-$$
+$$m\frac{d^2x}{dt^2} = 0, \qquad m\frac{d^2y}{dt^2} = -mg.$$
 
 Po podzieleniu obu równań przez masę $m$:
 
-$$
-\ddot{x} = 0,
-\qquad
-\ddot{y} = -g.
-$$
+$$\ddot{x} = 0, \qquad \ddot{y} = -g.$$
 
 Kropki oznaczają pochodne po czasie: $\dot{x} = v_x$, $\dot{y} = v_y$ oraz $\ddot{x} = a_x$, $\ddot{y} = a_y$. Masa $m$ skraca się — w próżni tor lotu nie zależy od masy rzuconego ciała. Co więcej, równania są rozprzężone, więc ruch poziomy i pionowy można rozwiązać osobno.
 
@@ -105,44 +95,25 @@ Kropki oznaczają pochodne po czasie: $\dot{x} = v_x$, $\dot{y} = v_y$ oraz $\dd
 
 W chwili wyrzutu $t = 0$ ciało znajduje się w początku układu współrzędnych i ma prędkość początkową $\vec{v}_0$ skierowaną pod kątem $\alpha$ do osi $x$:
 
-$$
-x(0) = 0,
-\qquad
-y(0) = 0,
-$$
+$$ x(0) = 0, \qquad y(0) = 0, $$
 
-$$
-v_x(0) = v_0\cos\alpha,
-\qquad
-v_y(0) = v_0\sin\alpha.
-$$
+$$v_x(0) = v_0\cos\alpha, \qquad v_y(0) = v_0\sin\alpha.$$
 
 Jednokrotne całkowanie równań przyspieszenia po czasie daje składowe prędkości:
 
-$$
-v_x(t) = v_0\cos\alpha = \mathrm{const},
-$$
+$$v_x(t) = v_0\cos\alpha = \mathrm{const},$$
 
-$$
-v_y(t) = v_0\sin\alpha - gt.
-$$
+$$v_y(t) = v_0\sin\alpha - gt.$$
 
 Wartość chwilowej prędkości (szybkość) wynosi zatem:
 
-$$
-v(t) = \sqrt{v_x(t)^2 + v_y(t)^2}
-= \sqrt{v_0^2 - 2v_0gt\sin\alpha + g^2t^2}.
-$$
+$$v(t) = \sqrt{v_x(t)^2 + v_y(t)^2} = \sqrt{v_0^2 - 2v_0gt\sin\alpha + g^2t^2}.$$
 
 Ponowne całkowanie po czasie, z uwzględnieniem $x(0) = 0$ i $y(0) = 0$, prowadzi do równań położenia:
 
-$$
-x(t) = v_0t\cos\alpha,
-$$
+$$x(t) = v_0t\cos\alpha,$$
 
-$$
-y(t) = v_0t\sin\alpha - \frac{1}{2}gt^2.
-$$
+$$y(t) = v_0t\sin\alpha - \frac{1}{2}gt^2.$$
 
 Wzdłuż osi $x$ ciało porusza się ruchem jednostajnym prostoliniowym, a wzdłuż osi $y$ — ruchem jednostajnie opóźnionym podczas wznoszenia i jednostajnie przyspieszonym podczas opadania.
 
@@ -150,48 +121,34 @@ Wzdłuż osi $x$ ciało porusza się ruchem jednostajnym prostoliniowym, a wzdł
 
 Dla $\alpha \neq \frac{\pi}{2}$ (czyli $\cos\alpha \neq 0$) możemy wyznaczyć czas z równania poziomego:
 
-$$
-t = \frac{x}{v_0\cos\alpha}
-$$
+$$t = \frac{x}{v_0\cos\alpha}$$
 
 i podstawić go do wyrażenia na $y(t)$, otrzymując równanie toru $y(x)$:
 
-$$
-y(x) = x\tan\alpha - \frac{g}{2v_0^2\cos^2\alpha}x^2.
-$$
+$$y(x) = x\tan\alpha - \frac{g}{2v_0^2\cos^2\alpha}x^2.$$
 
 Jest to funkcja kwadratowa zmiennej $x$ o ujemnym współczynniku przy $x^2$ — torem lotu w próżni jest **parabola** z ramionami skierowanymi w dół.
 
 Z równań ruchu wyznaczamy cztery podstawowe parametry lotu:
 
 1. **Czas wznoszenia $t_w$** — w najwyższym punkcie toru pionowa składowa prędkości zeruje się ($v_y(t_w) = 0$):
-   $$
-   v_0\sin\alpha - gt_w = 0
-   
-   \implies
-   t_w = \frac{v_0\sin\alpha}{g}.
-   $$
+
+   $$v_0\sin\alpha - gt_w = 0 \implies t_w = \frac{v_0\sin\alpha}{g}.$$
 
 2. **Maksymalna wysokość $H_{\max}$** — wartość $y(t)$ w chwili $t = t_w$:
-   $$
-   H_{\max} = y(t_w)
-   = v_0\sin\alpha \cdot \frac{v_0\sin\alpha}{g} - \frac{1}{2}g\left(\frac{v_0\sin\alpha}{g}\right)^2
-   = \frac{v_0^2\sin^2\alpha}{2g}.
-   $$
+
+   $$H_{\max} = y(t_w) = v_0\sin\alpha \cdot \frac{v_0\sin\alpha}{g} - \frac{1}{2}g\left(\frac{v_0\sin\alpha}{g}\right)^2 = \frac{v_0^2\sin^2\alpha}{2g}.$$
 
 3. **Całkowity czas lotu $t_c$** — dodatnie rozwiązanie równania $y(t_c) = 0$:
-   $$
-   t_c\left(v_0\sin\alpha - \frac{1}{2}gt_c\right) = 0
-   \implies
-   t_c = \frac{2v_0\sin\alpha}{g} = 2t_w.
-   $$
+
+   $$t_c\left(v_0\sin\alpha - \frac{1}{2}gt_c\right) = 0 \implies t_c = \frac{2v_0\sin\alpha}{g} = 2t_w.$$
+
    Czas wznoszenia jest równy czasowi opadania, co świadczy o symetrii toru.
 
 4. **Zasięg rzutu $Z$** — współrzędna $x$ w chwili upadku $t = t_c$:
-   $$
-   Z = x(t_c) = v_0\cos\alpha \cdot \frac{2v_0\sin\alpha}{g}
-   = \frac{v_0^2\sin(2\alpha)}{g},
-   $$
+
+   $$Z = x(t_c) = v_0\cos\alpha \cdot \frac{2v_0\sin\alpha}{g} = \frac{v_0^2\sin(2\alpha)}{g},$$
+
    gdzie wykorzystano tożsamość trygonometryczną $2\sin\alpha\cos\alpha = \sin(2\alpha)$.
 
 **Wpływ parametrów początkowych:** dwukrotne zwiększenie prędkości $v_0$ wydłuża czas lotu dwukrotnie, ale zwiększa wysokość maksymalną i zasięg aż czterokrotnie. Dla ustalonego $v_0$ największy zasięg $Z_{\max} = v_0^2/g$ uzyskuje się wtedy, gdy $\sin(2\alpha) = 1$, czyli dla kąta $\alpha = \frac{\pi}{4}$ ($45^\circ$). Dwa kąty dopełniające się do kąta prostego ($\alpha$ oraz $\frac{\pi}{2} - \alpha$) dają ten sam zasięg, lecz różne wysokości maksymalne i czasy lotu.
@@ -202,45 +159,39 @@ Z równań ruchu wyznaczamy cztery podstawowe parametry lotu:
 
 Jeżeli ciało zostaje wyrzucone z punktu $(0, y_0)$ położonego ponad poziomem lądowania ($y = 0$), równanie pionowe przyjmuje postać:
 
-$$
-y(t) = y_0 + v_0t\sin\alpha - \frac{1}{2}gt^2.
-$$
+$$y(t) = y_0 + v_0t\sin\alpha - \frac{1}{2}gt^2.$$
 
 Warunek upadku $y(t_c) = 0$ prowadzi do równania kwadratowego względem czasu. Fizyczny (dodatni) pierwiastek daje wydłużony czas lotu:
 
-$$
-t_c = \frac{v_0\sin\alpha + \sqrt{v_0^2\sin^2\alpha + 2gy_0}}{g},
-$$
+$$t_c = \frac{v_0\sin\alpha + \sqrt{v_0^2\sin^2\alpha + 2gy_0}}{g},$$
 
 a zasięg wynosi wówczas:
 
-$$
-Z = v_0t_c\cos\alpha
-= \frac{v_0\cos\alpha}{g}\left(v_0\sin\alpha + \sqrt{v_0^2\sin^2\alpha + 2gy_0}\right).
-$$
+$$Z = v_0t_c\cos\alpha = \frac{v_0\cos\alpha}{g}\left(v_0\sin\alpha + \sqrt{v_0^2\sin^2\alpha + 2gy_0}\right).$$
 
 Dla $y_0 > 0$ tor traci symetrię, prędkość przy upadku jest większa niż $v_0$, a kąt maksymalizujący zasięg przesuwa się poniżej $\frac{\pi}{4}$ ($45^\circ$). Podstawienie $y_0 = 0$ natychmiast przywraca wzory z podrozdziału 2.3.
 
 ---
+
 ## 3. Przykład liczbowy i analiza toru w modelu idealnym
 
-Przyjmujemy przyspieszenie ziemskie $g = 9{,}81\,\mathrm{m/s^2}$, masę ciała $m = 0{,}20\,\mathrm{kg}$ (piłka o promieniu $R = 0{,}035\,\mathrm{m}$) oraz warunki początkowe wynikające z numeru indeksu: $v_0 = \mathrm{[]}\,\mathrm{m/s}$ i $\alpha = \mathrm{[1,22]}\,\mathrm{rad}$ ($\mathrm{[70]}^\circ$). Wartości liczbowe w poniższej tabeli pochodzą z obliczeń wykonanych przez Blok A i Blok B (sekcja 7).
+Przyjmujemy przyspieszenie ziemskie $g = 9{,}81\,\mathrm{m/s^2}$, masę ciała $m = 0{,}20\,\mathrm{kg}$ (piłka o promieniu $R = 0{,}035\,\mathrm{m}$) oraz warunki początkowe wynikające z numeru indeksu: $v_0 = 36\,\mathrm{m/s}$ i $\alpha = 1{,}22\,\mathrm{rad}$ ($70^\circ$). Wartości liczbowe w poniższej tabeli pochodzą z obliczeń wykonanych przez Blok A i Blok B (sekcja 7).
 
 | Wielkość | Wzór | Wartość | Interpretacja |
 | :--- | :--- | ---: | :--- |
-| Składowa pozioma $v_{0x}$ | $v_0\cos\alpha$ | $[\dots]\,\mathrm{m/s}$ | stała prędkość wzdłuż osi $x$ |
-| Składowa pionowa $v_{0y}$ | $v_0\sin\alpha$ | $[\dots]\,\mathrm{m/s}$ | początkowa prędkość wznoszenia |
-| Czas wznoszenia $t_w$ | $v_0\sin\alpha / g$ | $[\dots]\,\mathrm{s}$ | chwila osiągnięcia wierzchołka |
-| Całkowity czas lotu $t_c$ | $2v_0\sin\alpha / g$ | $[\dots]\,\mathrm{s}$ | czas do ponownego $y = 0$ |
-| Maksymalna wysokość $H_{\max}$ | $v_0^2\sin^2\alpha / (2g)$ | $[\dots]\,\mathrm{m}$ | wysokość wierzchołka paraboli |
-| Zasięg rzutu $Z$ | $v_0^2\sin(2\alpha) / g$ | $[\dots]\,\mathrm{m}$ | odległość pozioma miejsca upadku |
-| Energia całkowita $E$ | $\frac{1}{2}mv_0^2$ | $[\dots]\,\mathrm{J}$ | stała w modelu idealnym |
+| Składowa pozioma $v_{0x}$ | $v_0\cos\alpha$ | $12{,}31\,\mathrm{m/s}$ | stała prędkość wzdłuż osi $x$ |
+| Składowa pionowa $v_{0y}$ | $v_0\sin\alpha$ | $33{,}83\,\mathrm{m/s}$ | początkowa prędkość wznoszenia |
+| Czas wznoszenia $t_w$ | $v_0\sin\alpha / g$ | $3{,}45\,\mathrm{s}$ | chwila osiągnięcia wierzchołka |
+| Całkowity czas lotu $t_c$ | $2v_0\sin\alpha / g$ | $6{,}90\,\mathrm{s}$ | czas do ponownego $y = 0$ |
+| Maksymalna wysokość $H_{\max}$ | $v_0^2\sin^2\alpha / (2g)$ | $58{,}33\,\mathrm{m}$ | wysokość wierzchołka paraboli |
+| Zasięg rzutu $Z$ | $v_0^2\sin(2\alpha) / g$ | $84{,}92\,\mathrm{m}$ | odległość pozioma miejsca upadku |
+| Energia całkowita $E$ | $\frac{1}{2}mv_0^2$ | $129{,}60\,\mathrm{J}$ | stała w modelu idealnym |
 
 Równania ruchu dla tych parametrów (z $t$ w sekundach) mają postać:
 
-$$ x(t) = v_{0x}t, \qquad y(t) = v_{0y}t - 4{,}905\,t^2, $$
+$$x(t) = 12{,}31\,t, \qquad y(t) = 33{,}83\,t - 4{,}905\,t^2,$$
 
-$$ v_x(t) = v_{0x}, \qquad v_y(t) = v_{0y} - 9{,}81\,t. $$
+$$v_x(t) = 12{,}31, \qquad v_y(t) = 33{,}83 - 9{,}81\,t.$$
 
 ![Tor paraboliczny rzutu ukośnego oraz wykresy składowych prędkości i szybkości w funkcji czasu](files/rzut_ukosny/tor_i_predkosc_idealny.png)
 
@@ -288,7 +239,7 @@ Im mniejszy kąt $\alpha$, tym większa część energii pozostaje przez cały l
 
 Układ dwóch równań drugiego rzędu można zapisać jako układ czterech równań różniczkowych pierwszego rzędu dla wektora stanu $\vec{u}(t) = [x, y, v_x, v_y]^T$:
 
-$$\frac{d}{dt} \begin{pmatrix} x \\ y \\ v_x \\ v_y \end{pmatrix} = \begin{pmatrix} v_x \\ v_y \\ a_x(v_x, v_y) \\ a_y(v_x, v_y) \end{pmatrix}.$$
+$$\frac{d}{dt} \begin{pmatrix} x \\ y \\ v_x \\ v_y \\ \end{pmatrix} = \begin{pmatrix} v_x \\ v_y \\ a_x(v_x, v_y) \\ a_y(v_x, v_y) \\ \end{pmatrix}.$$
 
 W modelu idealnym $a_x = 0$ oraz $a_y = -g$. Taki zapis pozwala w kolejnym rozdziale w prosty sposób dodać dowolną siłę oporu powietrza i zastosować solver numeryczny `solve_ivp`.
 
@@ -348,7 +299,7 @@ W obliczeniach przyjęto kulę o parametrach $m = 0{,}20\,\mathrm{kg}$, $R = 0{,
 
 W obecności oporu powietrza siła oporu wykonuje ujemną pracę, rozpraszając energię mechaniczną na ciepło i ruch wirowy powietrza:
 
-$$\frac{dE}{dt} = \vec{F}_{\mathrm{op}} \cdot \vec{v} = \begin{cases} -bv^2 \le 0 & \text{(opór liniowy)}, \\ -cv^3 \le 0 & \text{(opór kwadratowy)}. \end{cases}$$
+$$\frac{dE}{dt} = \vec{F}_{\mathrm{op}} \cdot \vec{v} = \begin{cases} -bv^2 \le 0 & \mathrm{(op\acute{o}r\ liniowy)}, \\ -cv^3 \le 0 & \mathrm{(op\acute{o}r\ kwadratowy)}. \end{cases}$$
 
 Energia całkowita $E(t)$ maleje monotonicznie przez cały czas lotu, przy czym najszybciej ubywa jej tuż po wyrzucie, gdy szybkość $v$ jest największa. Konsekwencją strat energii jest to, że prędkość uderzenia w ziemię jest mniejsza od prędkości początkowej ($v(t_c) < v_0$).
 
@@ -366,11 +317,11 @@ Poniższa tabela zestawia kluczowe wielkości wyznaczone przez skrypt (Blok C) d
 
 | Wielkość | Próżnia | Opór liniowy | Opór kwadratowy |
 | :--- | ---: | ---: | ---: |
-| Zasięg $Z$ $[\mathrm{m}]$ | $[\dots]$ | $[\dots]$ | $[\dots]$ |
-| Maksymalna wysokość $H_{\max}$ $[\mathrm{m}]$ | $[\dots]$ | $[\dots]$ | $[\dots]$ |
-| Całkowity czas lotu $t_c$ $[\mathrm{s}]$ | $[\dots]$ | $[\dots]$ | $[\dots]$ |
-| Prędkość upadku $v(t_c)$ $[\mathrm{m/s}]$ | $[\dots]$ | $[\dots]$ | $[\dots]$ |
-| Strata energii $\Delta E / E_0$ $[\%]$ | $0{,}0$ | $[\dots]$ | $[\dots]$ |
+| Zasięg $Z$ $[\mathrm{m}]$ | $84{,}92$ | $37{,}17$ | $54{,}57$ |
+| Maksymalna wysokość $H_{\max}$ $[\mathrm{m}]$ | $58{,}33$ | $37{,}73$ | $43{,}85$ |
+| Całkowity czas lotu $t_c$ $[\mathrm{s}]$ | $6{,}90$ | $5{,}62$ | $5{,}97$ |
+| Prędkość upadku $v(t_c)$ $[\mathrm{m/s}]$ | $36{,}00$ | $21{,}53$ | $26{,}63$ |
+| Strata energii $\Delta E / E_0$ $[\%]$ | $0{,}0$ | $64{,}2$ | $45{,}3$ |
 
 W modelu rzeczywistym **masa przestaje się skracać**: w równaniu występuje stosunek $c/m \propto \frac{1}{\rho_{\mathrm{ciała}} R}$. Cięższe i mniejsze geometrycznie ciała (np. stalowa kula zamiast piłki piankowej) mają mniejszy współczynnik $c/m$ i ich tor jest bliższy paraboli.
 
