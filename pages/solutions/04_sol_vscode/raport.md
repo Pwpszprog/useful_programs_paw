@@ -318,7 +318,7 @@ Poniższa tabela zestawia kluczowe wielkości wyznaczone przez skrypt (Blok C) d
 | Wielkość | Próżnia | Opór liniowy | Opór kwadratowy |
 | :--- | ---: | ---: | ---: |
 | Zasięg $Z$ $[\mathrm{m}]$ | $84{,}92$ | $37{,}17$ | $54{,}57$ |
-| Maksymalna wysokość $H_{\max}$ $[\mathrm{m}]$ | $58{,}33$ | $37{,}73$ | $43{,}85$ |
+| Maksymalna wysokość $H_{\max}$ $[\mathrm{m}]$ | $58{,}33$ | $37{,}74$ | $43{,}85$ |
 | Całkowity czas lotu $t_c$ $[\mathrm{s}]$ | $6{,}90$ | $5{,}62$ | $5{,}97$ |
 | Prędkość upadku $v(t_c)$ $[\mathrm{m/s}]$ | $36{,}00$ | $21{,}53$ | $26{,}63$ |
 | Strata energii $\Delta E / E_0$ $[\%]$ | $0{,}0$ | $64{,}2$ | $45{,}3$ |
